@@ -38,6 +38,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .httpBasic().authenticationEntryPoint(new LoginUrlAuthenticationEntryPoint("/google-login"))
                 .and()
                 .authorizeRequests()
+                .antMatchers("/door").permitAll()
                 .anyRequest().hasRole("EMPLOYEE")
         ;
     }
